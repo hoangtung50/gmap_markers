@@ -2,12 +2,12 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "gmap_markers"
-  spec.version       = '0.0.1'
+  spec.version       = '0.0.2'
   spec.platform          = Gem::Platform::RUBY
   spec.authors       = ["Ami Nguyen"]
   spec.email         = ["ami@futureworkz.com"]
 
-  spec.homepage          = "http://github.com/tungnh90/"
+  spec.homepage          = "http://github.com/hoangtung50"
   spec.summary           = "Add a map to view using the Google Maps API"
   spec.description       = "A map for Helpers that can be used to show muti markers"
   spec.rubyforge_project = spec.name

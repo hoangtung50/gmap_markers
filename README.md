@@ -22,7 +22,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    using: render_map_with_markers(markers , center_lat, center_lng, zoom) for show a map have much markers
+    example:
+    render_map_with_markers([{lat: 1.307532, lng: 103.881287, description: 'Test'}], 1.307532, 103.881287, 17)
+    
+## Usage
+    views app must slim
 
 ## Development
 

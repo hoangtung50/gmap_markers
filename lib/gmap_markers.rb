@@ -1,4 +1,3 @@
-require "gmap_markers/version"
 require "gmap_markers/gmaps_helper"
 
 module GmapMarkers

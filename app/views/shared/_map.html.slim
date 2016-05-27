@@ -1,0 +1,41 @@
+= javascript_include_tag ("http://maps.googleapis.com/maps/api/js?libraries=places")
+
+- markers = '[]' if markers.nil?
+- id ||= "maps-#{rand(0..9999999)}"
+
+.shared-google-maps-container
+  .google-maps id=id
+
+  javascript:
+    function initialize() {
+      var mapOptions = {
+        zoom: #{zoom},
+        center: new google.maps.LatLng(#{center_lat}, #{center_lng})
+      }
+      var map = new google.maps.Map(document.getElementById("#{id}"),
+                                    mapOptions);
+      var transitLayer = new google.maps.TransitLayer();
+      transitLayer.setMap(map);
+      setMarkers(map, #{markers.html_safe});
+    }
+    var infowindow;
+    function setMarkers(map, locations) {
+      $.each(locations, function(index, location) {
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(location.lat, location.lng),
+          map: map
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          if (infowindow) {
+              infowindow.close();
+          }
+          infowindow = new google.maps.InfoWindow({
+              content: location.description
+          });
+          infowindow.open(map,marker);
+        });
+      })
+    }
+
+    initialize();
